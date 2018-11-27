@@ -23,7 +23,9 @@ public class CustomMetricBinder implements MeterBinder {
     }
 
     private void registerGcMetrics(MeterRegistry meterRegistry) {
-        ManagementFactory.getGarbageCollectorMXBeans().stream().map(o -> (GarbageCollectorMXBean) o).forEach(garbageCollectorMXBean -> {
+        ManagementFactory.getGarbageCollectorMXBeans().stream()
+                .map(o -> (GarbageCollectorMXBean) o)
+                .forEach(garbageCollectorMXBean -> {
             Gauge.builder("jvm.gc.count", garbageCollectorMXBean, GarbageCollectorMXBean::getCollectionCount)
                     .baseUnit("collections").register(meterRegistry);
             Gauge.builder("jvm.gc.time", garbageCollectorMXBean, GarbageCollectorMXBean::getCollectionTime)
