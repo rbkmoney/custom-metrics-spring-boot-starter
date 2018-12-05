@@ -6,7 +6,7 @@
 
     <groupId>com.rbkmoney</groupId>
     <artifactId>spring-boot-starter-metrics-statsd</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <parent>
@@ -16,7 +16,7 @@
     </parent>
 
     <properties>
-        <spring.version>1.5.2.RELEASE</spring.version>
+        <spring.version>2.1.0.RELEASE</spring.version>
         <maven-compiler-plugin.version>1.8</maven-compiler-plugin.version>
     </properties>
     <dependencies>
@@ -47,16 +47,6 @@
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-statsd</artifactId>
             <version>1.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-spring-legacy</artifactId>
-            <version>1.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-core</artifactId>
-            <version>3.1.0.RELEASE</version>
         </dependency>
     </dependencies>
 </project>
