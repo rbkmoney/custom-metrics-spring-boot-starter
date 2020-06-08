@@ -8,6 +8,6 @@ build('spring_boot_starter_metrics_statsd', 'docker-host') {
         javaLibPipeline = load("build_utils/jenkins_lib/pipeJavaLib.groovy")
     }
 
-    def buildImageTag = "4799280a02cb73761a3ba3641285aac8ec4ec482"
+    def buildImageTag = "07d3946f8f005782697de20270ac58cdcd18b011"
     javaLibPipeline(buildImageTag)
 }
