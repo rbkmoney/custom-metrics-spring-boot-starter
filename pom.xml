@@ -4,16 +4,36 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.rbkmoney</groupId>
-    <artifactId>spring-boot-starter-metrics-statsd</artifactId>
-    <version>1.1.1</version>
-    <packaging>jar</packaging>
-
     <parent>
         <groupId>com.rbkmoney</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.4</version>
     </parent>
+
+    <groupId>com.rbkmoney</groupId>
+    <artifactId>spring-boot-starter-metrics-statsd</artifactId>
+    <version>1.1.2</version>
+    <packaging>jar</packaging>
+
+    <name>Spring boot starter metrics statsd</name>
+    <description>Starter for statsd metrics</description>
+    <url>https://github.com/rbkmoney/spring-boot-starter-metrics-statsd.git</url>
+
+    <developers>
+        <developer>
+            <name>Konstantin Struzhkin</name>
+            <email>k.struzhkin@rbk.money</email>
+            <organization>RBK.money</organization>
+            <organizationUrl>https://rbk.money</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/rbkmoney/spring-boot-starter-metrics-statsd.git</connection>
+        <developerConnection>scm:git:ssh://github.com/rbkmoney/spring-boot-starter-metrics-statsd.git</developerConnection>
+        <url>https://github.com/rbkmoney/spring-boot-starter-metrics-statsd/tree/master</url>
+    </scm>
+
 
     <properties>
         <spring.version>2.1.1.RELEASE</spring.version>
