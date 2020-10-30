@@ -5,11 +5,14 @@ import com.sun.management.OperatingSystemMXBean;
 import com.sun.management.UnixOperatingSystemMXBean;
 import io.micrometer.core.instrument.Gauge;
 import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Tag;
+import io.micrometer.core.instrument.Tags;
 import io.micrometer.core.instrument.binder.MeterBinder;
 
 import java.lang.management.ClassLoadingMXBean;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryPoolMXBean;
+import java.lang.management.MemoryType;
 
 public class CustomMetricBinder implements MeterBinder {
 
@@ -26,11 +29,11 @@ public class CustomMetricBinder implements MeterBinder {
         ManagementFactory.getGarbageCollectorMXBeans().stream()
                 .map(o -> (GarbageCollectorMXBean) o)
                 .forEach(garbageCollectorMXBean -> {
-            Gauge.builder("jvm.gc.count", garbageCollectorMXBean, GarbageCollectorMXBean::getCollectionCount)
-                    .baseUnit("collections").register(meterRegistry);
-            Gauge.builder("jvm.gc.time", garbageCollectorMXBean, GarbageCollectorMXBean::getCollectionTime)
-                    .baseUnit("millis").register(meterRegistry);
-        });
+                    Gauge.builder("jvm.gc.count", garbageCollectorMXBean, GarbageCollectorMXBean::getCollectionCount)
+                            .baseUnit("collections").register(meterRegistry);
+                    Gauge.builder("jvm.gc.time", garbageCollectorMXBean, GarbageCollectorMXBean::getCollectionTime)
+                            .baseUnit("millis").register(meterRegistry);
+                });
     }
 
     private void registerFileDescriptionMetrics(MeterRegistry meterRegistry) {
@@ -53,12 +56,15 @@ public class CustomMetricBinder implements MeterBinder {
 
     private void registerMemoryPoolMetrics(MeterRegistry meterRegistry) {
         ManagementFactory.getPlatformMXBeans(MemoryPoolMXBean.class).forEach(memoryPoolBean -> {
+            String area = memoryPoolBean.getType().equals(MemoryType.HEAP) ? "heap" : "nonheap";
+            Iterable<Tag> tags = Tags.of("id", memoryPoolBean.getName(), "area", area);
+
             Gauge.builder("jvm.memory.used", memoryPoolBean,
-                    (mem) -> (double) mem.getUsage().getUsed()).baseUnit("bytes").register(meterRegistry);
+                    (mem) -> (double) mem.getUsage().getUsed()).baseUnit("bytes").tags(tags).register(meterRegistry);
             Gauge.builder("jvm.memory.committed", memoryPoolBean,
-                    (mem) -> (double) mem.getUsage().getCommitted()).baseUnit("bytes").register(meterRegistry);
+                    (mem) -> (double) mem.getUsage().getCommitted()).baseUnit("bytes").tags(tags).register(meterRegistry);
             Gauge.builder("jvm.memory.max", memoryPoolBean,
-                    (mem) -> (double) mem.getUsage().getMax()).baseUnit("bytes").register(meterRegistry);
+                    (mem) -> (double) mem.getUsage().getMax()).baseUnit("bytes").tags(tags).register(meterRegistry);
         });
     }
 
