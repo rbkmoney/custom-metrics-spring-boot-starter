@@ -37,6 +37,7 @@
     <properties>
         <spring.version>2.3.4.RELEASE</spring.version>
         <maven-compiler-plugin.version>11</maven-compiler-plugin.version>
+        <maven.compiler.release>11</maven.compiler.release>
     </properties>
     <dependencies>
         <dependency>

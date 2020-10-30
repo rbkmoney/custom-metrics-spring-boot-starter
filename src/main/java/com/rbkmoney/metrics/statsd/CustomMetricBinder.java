@@ -56,7 +56,7 @@ public class CustomMetricBinder implements MeterBinder {
 
     private void registerMemoryPoolMetrics(MeterRegistry meterRegistry) {
         ManagementFactory.getPlatformMXBeans(MemoryPoolMXBean.class).forEach(memoryPoolBean -> {
-            String area = memoryPoolBean.getType().equals(MemoryType.HEAP) ? "heap" : "non_heap";
+            String area = memoryPoolBean.getType().equals(MemoryType.HEAP) ? "heap" : "nonheap";
             Iterable<Tag> tags = Tags.of("id", memoryPoolBean.getName(), "area", area);
 
             Gauge.builder("jvm.memory.used", memoryPoolBean,
