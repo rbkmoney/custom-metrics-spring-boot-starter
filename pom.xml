@@ -34,9 +34,8 @@
         <url>https://github.com/rbkmoney/spring-boot-starter-metrics-statsd/tree/master</url>
     </scm>
 
-
     <properties>
-        <spring.version>2.1.1.RELEASE</spring.version>
+        <spring.version>2.3.4.RELEASE</spring.version>
         <maven-compiler-plugin.version>11</maven-compiler-plugin.version>
     </properties>
     <dependencies>
