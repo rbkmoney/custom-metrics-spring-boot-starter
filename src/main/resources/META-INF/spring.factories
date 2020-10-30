@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.rbkmoney.metrics.statsd.StatsdMetricsAutoConfig
+com.rbkmoney.metrics.MetricsAutoConfig

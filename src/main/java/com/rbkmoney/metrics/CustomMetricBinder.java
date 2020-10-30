@@ -1,4 +1,4 @@
-package com.rbkmoney.metrics.statsd;
+package com.rbkmoney.metrics;
 
 import com.sun.management.GarbageCollectorMXBean;
 import com.sun.management.OperatingSystemMXBean;

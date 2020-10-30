@@ -1,5 +1,5 @@
 #!groovy
-build('spring-boot-starter-metrics-statsd', 'docker-host') {
+build('custom-metrics-spring-boot-starter', 'docker-host') {
     checkoutRepo()
     loadBuildUtils()
 
