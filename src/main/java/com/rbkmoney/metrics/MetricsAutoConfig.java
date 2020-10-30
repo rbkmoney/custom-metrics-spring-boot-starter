@@ -1,4 +1,4 @@
-package com.rbkmoney.metrics.statsd;
+package com.rbkmoney.metrics;
 
         import io.micrometer.core.instrument.MeterRegistry;
         import org.springframework.beans.factory.annotation.Value;
@@ -8,7 +8,7 @@ package com.rbkmoney.metrics.statsd;
         import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class StatsdMetricsAutoConfig {
+public class MetricsAutoConfig {
 
     @Bean
     @ConditionalOnMissingBean
