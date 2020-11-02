@@ -25,7 +25,7 @@ management:
         port: 8023 
     endpoint: 
         metrics:
-            enavled: true
+            enabled: true
         prometheus:
             enabled: true
     endpoints:
