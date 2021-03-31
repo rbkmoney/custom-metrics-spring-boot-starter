@@ -6,12 +6,12 @@
 
     <parent>
         <groupId>com.rbkmoney</groupId>
-        <artifactId>parent</artifactId>
-        <version>1.0.5</version>
+        <artifactId>library-parent-pom</artifactId>
+        <version>1.0.2</version>
     </parent>
 
     <artifactId>custom-metrics-spring-boot-starter</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.5</version>
     <packaging>jar</packaging>
 
     <name>Custom metrics Spring Boot starter</name>
@@ -34,8 +34,7 @@
     </scm>
 
     <properties>
-        <spring.version>2.3.4.RELEASE</spring.version>
-        <java.version>8</java.version>
+        <spring.version>2.3.8.RELEASE</spring.version>
         <micrometer.version>1.5.6</micrometer.version>
     </properties>
 
@@ -78,20 +77,4 @@
             <version>${micrometer.version}</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
-                    <configuration>
-                        <source>${java.version}</source>
-                        <target>${java.version}</target>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
 </project>
